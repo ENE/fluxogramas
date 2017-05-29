@@ -1,0 +1,43 @@
+."Tela grande não acendeu".;
+if (Tela pequena está acesa?) [Sim] {
+  
+} else [Não] {
+  if (Da última vez a **tela pequena** estava em uso?) [Sim] {
+    .Então o sistema pode estar funcionando
+    errático devido a um desligamento
+    incorreto ou falta de energização.;
+    .**Solucione esses problemas**
+    *Então siga adiante...*.;
+  } else [Não] {
+    .Então você não poderá usá-la agora e
+    a tela grande precisa acender..;
+  }
+}
+Sim:
+block{
+  Certifique-se de **energizar** o monitor;
+  Teste os **contatos do cabo** de força;
+  Verifique mal contato nas pontas do cabo **HDMI**;
+  .**LED** deve indicar LIGADO.;
+}
+if (Sucesso?
+**Tela grande acendeu?**) [Sim]{
+  goto OK;
+} else [Não]
+if (Da última vez a **tela grande** estava mesmo em uso?) [Sim] {
+  Fail:
+  .Então você tem um problema técnico que merece mais atenção.;
+  return;
+} else [Não] {
+  block {
+    Tecle **Windows + P**;
+    Use **Seta Cima** ou **Seta Baixo** e
+    selecione **Duplicar** ou **Segunda tela somente**; 
+    
+  }
+}
+if (!Sucesso?) [Não acendeu...] {
+  goto Fail;
+} else [Sim]
+OK:
+Reconhecimento facial;

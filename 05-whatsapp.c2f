@@ -1,0 +1,53 @@
+SISTEMA DESBLOQUEADO;
+Start:
+if (Emulador NOX rodando?) [Não] {
+  Nox:
+  block {
+    Execute **NOX**;
+    Aguarde carregamento
+    **~2 min**;
+  }
+} else [Sim] {
+  if (Telinha preta?) [Sim] {
+    block {
+      Na Barra de Tarefas, segure o dedo
+      (ou clique Botão Direito) em cima
+      do ícone do emulador NOX abrindo
+      **Menu de Contexto**;
+      Escolha **Fechar**;
+      /* Poderá ser necessário **arrastar** essa Caixa de Diálogo através de sua 
+**Barra de Título**, para que os botões não sejam ocultados pelo OptiKey */
+      No diálogo, **Confirmar**;
+      Aguarde encerramento
+      **~10 seg**;
+      goto Nox;
+    }
+  } else [Não, Android está carregado!] {
+    
+  }
+}
+Web:
+if (**WhatsApp Web** está aberto?) [Sim] {
+  if (Problema **"Telefone desconectado"**?) [Sim] {
+    Ruim:
+    .Será que você aguardou os tempos sufientes?.;
+    .Tem certeza de que a máquina está na Internet?.;
+    Chame um técnico **ou** volte ao INÍCIO;
+    loop Start;
+  } else [Não, WhatsApp está OK]
+} else [Não] {
+  Execute o app **WhatsApp**;
+  if (Entrou normal?) [Sim] {
+    
+  } else [Não, apareceu um diálogo
+  com o botão "Sair"] {
+    .**Nunca** clique "Sair".;
+    if (Clicou por acidente?) [Sim, agora existe um QrCode...]{
+      /Parear WhatsApp Web/;
+      goto Web;
+    } else [Não] {
+      goto Ruim;
+    }
+  }
+}
+SISTEMA DESBLOQUEADO;

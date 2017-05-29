@@ -1,0 +1,13 @@
+."Não foi possível acionar a câmera".;
+Tecle **ENTER** para colocar foco na tela de login;
+/* Você pode teclar TAB repetidas vezes e isso dará voltas no passeio */
+Tecle **TAB** para selecionar o link **Opções de entrada**;
+Tecle **ENTER** para exibir as **Opções de entrada**;
+/* Teclar TAB repetidas vezes provocará voltas no passeio pelas opções: 
+reconhecimento facil, PIN, senha*/
+Tecle **TAB** para selecionar a primeira opção, que é a do **Reconhecimento 
+facial**;
+Finalmente tecle **ENTER** para acionar reconhecimento facial forçando a 
+inicilização da câmera no Tobii EyeX;
+Reconhecimento facial;
+

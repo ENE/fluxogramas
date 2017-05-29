@@ -1,0 +1,40 @@
+SISTEMA DESBLOQUEADO;
+/* O dispositivo está funcionando se as **luzes vermelhas** estão acesas e não há 
+**símbolo de insucesso (!)** na bandeja. */
+if (!O dispositivo está funcionando?) [Não] {
+  block{
+  Desconecte as duas pontas do cabo USB 3.0;
+  Desligue a chave a partir do ícone da bandeja;
+  Reconecte o cabo;
+  Torne a "On" novamente;
+  }
+  if (Funcionou?) [Sim, vejo os olhinhos!] {
+    goto Funciona;
+  } else [Não] {
+    .Existe um problema técnico que merece
+    maior atenção. Poderá reinicar a máquina,
+    e mesmo reinstalar o Tobii Engine.;
+    return;
+  }
+} else [Sim]
+.*Ou seja, os olhinhos
+estão mexendo na bandeja...*.;
+Funciona:
+block {
+  Clique no ícone da bandeja;
+  Nesse menu do Tobii, clique os **olhinhos**;
+  Ao lado, o **perfil** do paciente;
+}
+New:
+block {
+  /* Porque precisamos do ajuste para a posição */
+  Na tela de testes, ***"Improve calibration"***;
+  Centralize os olhos no quadro;
+  /* O paciente deve fazê-la com atenção e dedicação*/
+  .A calibração iniciará automaticamente
+  e será concluída na sequência.;
+}
+if (Imperfeição no procedimento?) [Sim] {
+  loop New;
+} else [Não]
+UMA CALIBRAÇÃO FOI REALIZADA;
