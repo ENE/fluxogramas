@@ -19,6 +19,7 @@ if (!O dispositivo está funcionando?) [Não] {
 } else [Sim]
 .*Ou seja, os olhinhos
 estão mexendo na bandeja...*.;
+/Fechar OptiKey/;
 Funciona:
 block {
   Clique no ícone da bandeja;
@@ -30,9 +31,21 @@ block {
   /* Porque precisamos do ajuste para a posição */
   Na tela de testes, ***"Improve calibration"***;
   Centralize os olhos no quadro;
+  try{
   /* O paciente deve fazê-la com atenção e dedicação*/
+  Making:
   .A calibração iniciará automaticamente
   e será concluída na sequência.;
+  /* O processo de calibração foi interrompido apenas porque o paciente tirou o olhar dele */
+  } catch Calibração interrompida {
+    if(Vai querer alterar enquadramento?) [Sim] {
+      Escolha **Cancel**;
+      goto New;
+    } else [Não] {
+      Escolha **Try again**;
+      goto Making;
+    }
+  }
 }
 if (Imperfeição no procedimento?) [Sim] {
   loop New;

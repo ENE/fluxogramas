@@ -1,14 +1,29 @@
 SISTEMA DESBLOQUEADO;
 Start:
+/* Observe se o ícone do NOX está na **Barra de Tarefas** */
 if (Emulador NOX rodando?) [Não] {
   Nox:
   block {
     Execute **NOX**;
-    Aguarde carregamento
-    **~2 min**;
+    try {
+      Load:
+      Aguarde carregamento
+      **~2 min**;
+    } catch Não sabe se terminou? {
+      block {
+        /* Clicando o ícone na Barra de Tarefas você pode conseguir vê-la por um instante */
+        Inspecione a tela do NOX;
+        /* O Windows exibe **balões** e faz **alertas** sonoros */
+        .Chegam **novas mensagens** de WhatsApp?.;
+      }
+      goto Load;
+    }
   }
 } else [Sim] {
-  if (Telinha preta?) [Sim] {
+  /* Clicando aquele ícone você pode conseguir ver a tela do emulador por um instante */
+  if (Telinha está preta?
+  (apagada)) [Sim] {
+    /Fechar OptiKey/;
     block {
       Na Barra de Tarefas, segure o dedo
       (ou clique Botão Direito) em cima

@@ -1,0 +1,42 @@
+SISTEMA DESBLOQUEADO;
+Acione o atalho de teclado **Windows+P**;
+.Abre-se o menu de telas.;
+Use setas para cima e para baixo;
+Select:
+switch(Selecione) {
+  case Tela do computador somente:
+    try {
+      Prefira **Duplicar**;
+      goto Select;
+    } catch () {
+      goto End;
+    }
+    break;
+  case Duplicar:
+    .Este é o **"modo do assistente"**,
+    no qual essa pessoa assume
+    completamente o controle.;
+    Tecle **ENTER** para ativá-lo;
+    **ESC** para esconder o menu;
+    break;
+  case Estender:
+    .NUNCA use esta opção,
+    pois não funcionará
+    corretamente.;
+    try {
+      Tente **desfazer** ou solicite
+      ajuda técnica;
+      goto Select;
+    } catch {
+      goto End;
+    }
+    break;
+  case Segunda tela somente:
+    .Este é o **"modo do paciente"**,
+    para a privacidade dele.;
+    Tecle **ENTER** para ativá-lo;
+    **ESC** para esconder o menu;
+    break;
+}
+End:
+SISTEMA DESBLOQUEADO;

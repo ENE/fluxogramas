@@ -1,11 +1,9 @@
 Aproxime a máquina;
 if(Ela já está operante?) [Sim] {
-  /* Ao ser posta de lado, a máquina deve ser colocada em **Modo de Suspensão**, 
-para
-  seu uso seja bloqueado */
+  /* Ao ser posta de lado, a máquina deve ser colocada em **Modo de Suspensão**, para que seu uso seja bloqueado */
   .**Não deveria estar!**
   *Mas siga adiante*....;
-  goto Tobii;
+  goto Screens_1;
   return;
 } else [Não] {
 
@@ -26,8 +24,7 @@ para
       break;
   }
   Hello:
-    /* Esta fase do **"Preparando..."** poderá ser muito rápida e passar sem ser 
-percebida */
+    /* Esta fase do **"Preparando..."** poderá ser muito rápida e passar sem ser percebida */
     Reconhecimento facial;
   if (!Sucesso?) [Não, pois precisa "centralizar"] {
     
@@ -38,16 +35,21 @@ percebida */
     passando a mão na frente da câmera..;
     loop Hello;
   } else [Sim]
+  Screens_1:
+  /* Para você **acender** a tela secundária (pequena) */
+  /Gerir telas/;
   Tobii:
   try {
     /Calibração/;
+    Executar **OptiKey**;
     /* Os testes são realizados pelo paciente no teclado de menor do OptiKey, e 
 observados pelo assistente */
-    OptiKey + **testes finais**;
+    **Testes finais** dentro do OptiKey;
   }
   catch Se não passou nos testes... {
     loop Tobii;
   }
   /WhatsApp/;
-  Apagar a tela secundária;
+  /* Para você **apagar** a tela secundária (pequena) */;
+  /Gerir telas/;
 Sistema funcionando;
