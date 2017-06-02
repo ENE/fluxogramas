@@ -1,6 +1,5 @@
 SISTEMA DESBLOQUEADO;
-/* O dispositivo está funcionando se as **luzes vermelhas** estão acesas e não há 
-**símbolo de insucesso (!)** na bandeja. */
+/* O dispositivo está funcionando se as **luzes vermelhas** estão acesas e não há **símbolo de insucesso (!)** na bandeja. */
 if (!O dispositivo está funcionando?) [Não] {
   block{
   Desconecte as duas pontas do cabo USB 3.0;
@@ -19,6 +18,13 @@ if (!O dispositivo está funcionando?) [Não] {
 } else [Sim]
 .*Ou seja, os olhinhos
 estão mexendo na bandeja...*.;
+if(Calibração eventual?) [Sim] {
+  /* Você precisa **acender**
+  a tela pequena */
+  /Gerir telas/;
+} else [Não, venho do "Fluxo principal"] {
+
+}
 /Fechar OptiKey/;
 Funciona:
 block {
@@ -47,7 +53,16 @@ block {
     }
   }
 }
-if (Imperfeição no procedimento?) [Sim] {
+/* Realizados pelo paciente e
+observados pelo assistente */
+**Testes** da calibragem;
+/* **Critério:**
+  há uma "média" razoável de centralização para os 9 pontos de teste,
+  especialmente considerando-se a
+  metade inferior da tela */
+if (Calibragem aceitável?) [Não] {
   loop New;
-} else [Não]
+} else [Sim]
+/* **X** no canto superior direito */
+Feche a tela de testes;
 UMA CALIBRAÇÃO FOI REALIZADA;

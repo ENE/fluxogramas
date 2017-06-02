@@ -42,7 +42,7 @@ if(Ela já está operante?) [Sim] {
   try {
     /Calibração/;
     Executar **OptiKey**;
-    /* Os testes são realizados pelo paciente no teclado de menor do OptiKey, e 
+    /* Os testes são realizados pelo paciente no teclado menor do OptiKey, e
 observados pelo assistente */
     **Testes finais** dentro do OptiKey;
   }
@@ -50,6 +50,8 @@ observados pelo assistente */
     loop Tobii;
   }
   /WhatsApp/;
+  Executar **OptiKey**;
+  .Já está testado!.;
   /* Para você **apagar** a tela secundária (pequena) */;
   /Gerir telas/;
 Sistema funcionando;

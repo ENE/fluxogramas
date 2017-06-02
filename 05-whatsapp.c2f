@@ -2,6 +2,10 @@ SISTEMA DESBLOQUEADO;
 Start:
 /* Observe se o ícone do NOX está na **Barra de Tarefas** */
 if (Emulador NOX rodando?) [Não] {
+  Tecle **Windows+M**
+  para minimizar tudo;
+  ....ou poderá executar coisas
+  a partir do **Menu Iniciar**.;
   Nox:
   block {
     Execute **NOX**;
@@ -24,14 +28,13 @@ if (Emulador NOX rodando?) [Não] {
   if (Telinha está preta?
   (apagada)) [Sim] {
     /Fechar OptiKey/;
+    .Sugestão\: tecle **Windows+M** para minimizar tudo.;
     block {
       Na Barra de Tarefas, segure o dedo
       (ou clique Botão Direito) em cima
       do ícone do emulador NOX abrindo
       **Menu de Contexto**;
       Escolha **Fechar**;
-      /* Poderá ser necessário **arrastar** essa Caixa de Diálogo através de sua 
-**Barra de Título**, para que os botões não sejam ocultados pelo OptiKey */
       No diálogo, **Confirmar**;
       Aguarde encerramento
       **~10 seg**;
@@ -46,23 +49,36 @@ if (**WhatsApp Web** está aberto?) [Sim] {
   if (Problema **"Telefone desconectado"**?) [Sim] {
     Ruim:
     .Será que você aguardou os tempos sufientes?.;
-    .Tem certeza de que a máquina está na Internet?.;
+    .Tem certeza de que a máquina está conectada à Internet?.;
     Chame um técnico **ou** volte ao INÍCIO;
     loop Start;
   } else [Não, WhatsApp está OK]
 } else [Não] {
   Execute o app **WhatsApp**;
+  Normal:
   if (Entrou normal?) [Sim] {
     
   } else [Não, apareceu um diálogo
   com o botão "Sair"] {
-    .**Nunca** clique "Sair".;
-    if (Clicou por acidente?) [Sim, agora existe um QrCode...]{
+    **IMPORTANTE**
+    Tenha calma!;
+    try {
+      .Nesse diálogo, **nunca** clique "Sair".;
+    } catch (Clicou por acidente?) {
+      Execute o app **WhatsApp**;
+      .*Existe um QrCode
+      na tela, não é?!*.;
       /Parear WhatsApp Web/;
       goto Web;
-    } else [Não] {
+    }
+    try {
+      .Talvez **TENTAR NOVAMENTE**,
+      pois o emulador NOX podia
+      ainda estar carregando.;
+    } catch {
       goto Ruim;
     }
+  goto Normal;
   }
 }
 SISTEMA DESBLOQUEADO;
